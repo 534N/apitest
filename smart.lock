@@ -1,0 +1,19 @@
+{
+  "meteor": {
+    "git": "https://github.com/meteor/meteor.git",
+    "branch": "master",
+    "commit": "2e78d0d110443ac6fb9471e6be1c136f15f03fd2"
+  },
+  "dependencies": {
+    "basePackages": {
+      "collection-api": {}
+    },
+    "packages": {
+      "collection-api": {
+        "git": "https://github.com/crazytoad/meteor-collectionapi.git",
+        "tag": "v0.1.14",
+        "commit": "d42ba1681289cb093afa7c67500862241df15f9e"
+      }
+    }
+  }
+}
