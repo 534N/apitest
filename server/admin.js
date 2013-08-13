@@ -16,6 +16,15 @@ Meteor.startup(function () {
 
 });
 
+
+Meteor.methods({
+  test: function(options) {
+    return Meteor.http.call('GET', 'http://sandbox.nearest.com/index.php', {params: {option: 'com_auth', username: 'admin', password: 'tigris', type: 'login', format: 'raw'}}, function(error, result) {
+      console.log(result)
+    });
+  }
+});
+
 Accounts.registerLoginHandler(function(loginRequest) {
   console.log(loginRequest)
   var userId    = null;

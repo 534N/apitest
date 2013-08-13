@@ -4,6 +4,7 @@
 
 <body>
   {{> hello}}
+  {{> test}}
 </body>
 
 <template name="hello">
@@ -11,4 +12,9 @@
   {{greeting}}
   {{loginButtons}}
   <input type="button" value="Click" />
+</template>
+
+<template name="test">
+	<h1>Toggle</h1>
+	<input type="button" class="toggle" value="Toggle" />
 </template>
