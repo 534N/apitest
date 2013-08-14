@@ -8,21 +8,20 @@ alerts.allow({
 		return true;
 	},
 	remove: function(userId) {
-		return alerts.userId === userId;
+		return true;
 	}
 });
 
-Meteor.methods({
-	clearRecord: function(id) {
-		return alerts.remove({_id: id});
-	}
-});
+clearRecord =  function(id) {
+	return alerts.remove({_id: id});
+}
 
 getAllAlerts = function() {
 	var updates = [];
 	var alertRecords = alerts.find();
 	alertRecords.forEach(function(rec) {
 		updates.push(rec);
+		clearRecord(rec._id);
 	})
 	
 	return updates;

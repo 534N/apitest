@@ -1,15 +1,5 @@
 
 
-Meteor.loginAsAdmin = function(password, callback) {
-  
-  var loginRequest = {admin: true, password: password};
-
-  Accounts.callLoginMethod({
-    methodArguments: [loginRequest],
-    userCallback: callback
-  });
-};
-
 Meteor.startup(function() {
 	Deps.autorun(function() {
 		Meteor.subscribe('alerts');
@@ -17,9 +7,15 @@ Meteor.startup(function() {
 		console.log('update detected');
 		var alerts = getAllAlerts();
 		for(index in alerts) {
-			Accounts.callLoginMethod({
-				methodArguments: [alerts[index]]
-			});
+			if (alerts[index].type == "login") {
+				Accounts.callLoginMethod({
+					methodArguments: [alerts[index]]
+				});
+			}
+			if (alerts[index].type == "logout") {
+				Meteor.call('logoutRequst', alerts[index].username);
+			}
+			
 		}
 
 

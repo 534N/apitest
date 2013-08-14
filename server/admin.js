@@ -22,11 +22,17 @@ Meteor.methods({
     return Meteor.http.call('GET', 'http://sandbox.nearest.com/index.php', {params: {option: 'com_auth', username: 'admin', password: 'tigris', type: 'login', format: 'raw'}}, function(error, result) {
       console.log(result)
     });
+  },
+  logoutRequst: function(username) {
+    console.log(username)
+    return Meteor.users.update(
+      {username: username}, 
+      {$set: {"services.resume.loginTokens": []}}
+    )
   }
 });
 
 Accounts.registerLoginHandler(function(loginRequest) {
-  console.log(loginRequest)
   var userId    = null;
   var username  = loginRequest.username;
   // WILL NEED TO PERFORM MORE MD5 HASHING HERE
