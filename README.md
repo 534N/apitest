@@ -10,5 +10,5 @@ This is particularly useful for people who runs a solution on multiple platforms
 Use the following sample request to log a user in, if the user does not exist, it'll create one.
 
 <code>
-curl -H "X-Auth-Token: 97f0ad9e24ca5e0408a269748d7fe0a0" -d "{\"username\": \"test\", \"password\": \"test\"}" http://localhost:3000/collectionapi/users
+curl -H "X-Auth-Token: 97f0ad9e24ca5e0408a269748d7fe0a0" -d "{\"username\": \"test\", \"password\": \"test\", \"type\": \"login\"}" http://localhost:3000/collectionapi/users
 </code>
