@@ -19,9 +19,11 @@ Meteor.startup(function () {
 
 Meteor.methods({
   test: function(options) {
-    return Meteor.http.call('GET', 'http://sandbox.nearest.com/index.php', {params: {option: 'com_auth', username: 'admin', password: 'tigris', type: 'login', format: 'raw'}}, function(error, result) {
-      console.log(result)
-    });
+    return Meteor.http.get('http://sandbox.nearest.com/rest/login/admin/tigris');
+    // , function(error, result) {
+      // readCookie('95428f8462d2476c71093e231557e77b');
+      // console.log(result)
+    // });
   },
   logoutRequst: function(username) {
     console.log(username)
@@ -31,6 +33,12 @@ Meteor.methods({
     )
   }
 });
+
+
+
+// ====================================================================== 
+// ACCOUNTING HANDLER
+// ====================================================================== 
 
 Accounts.registerLoginHandler(function(loginRequest) {
   var userId    = null;

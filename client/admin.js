@@ -15,10 +15,7 @@ Meteor.startup(function() {
 			if (alerts[index].type == "logout") {
 				Meteor.call('logoutRequst', alerts[index].username);
 			}
-			
 		}
-
-
 	});
 })
 
